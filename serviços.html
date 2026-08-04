@@ -3,85 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça os serviços da nossa clínica veterinária: consultas, vacinas, cirurgias, exames e atendimento 24h.">
     <title>Nossos Serviços | Clínica Veterinária</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Estilos Globais e Reseta de Borda */
+        /* Variáveis de Cores e Estilos Globais */
+        :root {
+            --primary-color: #2a7b6c;
+            --primary-dark: #1f584d;
+            --accent-color: #a8e6cf;
+            --bg-color: #f8faf9;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #64748b;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
         /* Cabeçalho */
         header {
-            background-color: #2a7b6c;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            padding: 1.5rem 2rem;
+            padding: 3rem 1.5rem;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
         }
 
         /* Navegação */
         nav {
-            background-color: #1f584d;
-            padding: 0.8rem;
+            background-color: var(--primary-dark);
+            padding: 1rem;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 18px;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
 
-        nav a:hover {
-            color: #a8e6cf;
+        nav a:hover,
+        nav a.active {
+            color: var(--accent-color);
         }
 
-        /* Seção Principal de Serviços */
+        /* Seção Principal */
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
 
         .intro {
             text-align: center;
-            margin-bottom: 3rem;
+            max-width: 700px;
+            margin: 0 auto 3.5rem auto;
         }
 
         .intro h2 {
-            color: #2a7b6c;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
         }
 
+        .intro p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Grid de Serviços */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         /* Cards de Serviços */
         .service-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem 1.8rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -89,63 +129,95 @@
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            background-color: rgba(168, 230, 207, 0.25);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1.2rem;
         }
 
         .service-card h3 {
-            color: #2a7b6c;
+            color: var(--primary-color);
+            font-size: 1.25rem;
             margin-bottom: 0.8rem;
         }
 
         .service-card p {
-            color: #666;
+            color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Call to Action (Agendamento) */
         .cta-section {
-            background-color: #a8e6cf;
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.4), rgba(168, 230, 207, 0.1));
+            border: 1px solid var(--accent-color);
             text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
-            border-radius: 10px;
+            padding: 3.5rem 1.5rem;
+            margin-top: 5rem;
+            border-radius: var(--radius);
         }
 
         .cta-section h2 {
-            color: #1f584d;
-            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-section p {
+            color: var(--text-main);
+            font-size: 1rem;
         }
 
         .cta-btn {
-            display: inline-block;
-            background-color: #2a7b6c;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
+            padding: 0.9rem 2.2rem;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 12px rgba(42, 123, 108, 0.3);
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         .cta-btn:hover {
-            background-color: #1f584d;
+            background-color: var(--primary-dark);
+            transform: scale(1.03);
         }
 
         /* Rodapé */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1e293b;
+            color: #94a3b8;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
             font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
         }
     </style>
 </head>
@@ -153,13 +225,13 @@
 
     <header>
         <h1>Cuidando do Seu Melhor Amigo</h1>
-        <p>Excelência e carinho na medicina veterinária</p>
+        <p>Excelência, medicina moderna e carinho na veterinária</p>
     </header>
 
-    <nav>
+    <nav aria-label="Navegação Principal">
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre Nós</a>
-        <a href="servicos.html">Serviços</a>
+        <a href="servicos.html" class="active">Serviços</a>
         <a href="contato.html">Contato</a>
     </nav>
 
@@ -167,53 +239,55 @@
         
         <section class="intro">
             <h2>Nossos Serviços Especializados</h2>
-            <p>Oferecemos suporte completo para garantir a saúde e o bem-estar do seu pet em todas as fases da vida.</p>
+            <p>Oferecemos suporte médico veterinário completo para garantir a saúde e a qualidade de vida do seu pet.</p>
         </section>
 
         <section class="services-grid">
             
-            <div class="service-card">
-                <div class="service-icon">🩺</div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🩺</div>
                 <h3>Consultas de Rotina</h3>
-                <p>Exames clínicos completos, check-ups preventivos e acompanhamento do desenvolvimento para cães e gatos.</p>
-            </div>
+                <p>Exames clínicos minuciosos, check-ups preventivos e acompanhamento contínuo da saúde de cães e gatos.</p>
+            </article>
 
-            <div class="service-card">
-                <div class="service-icon">💉</div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">💉</div>
                 <h3>Vacinação e Imunização</h3>
-                <p>Aplicação de vacinas importadas essenciais para proteger seu pet contra as principais doenças virais e bacterianas.</p>
-            </div>
+                <p>Protocolos de vacinação personalizados com vacinas importadas para máxima proteção do seu pet.</p>
+            </article>
 
-            <div class="service-card">
-                <div class="service-icon">🏥</div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🏥</div>
                 <h3>Cirurgias Gerais</h3>
-                <p>Procedimentos cirúrgicos com anestesia inalatória, monitoramento multiparamétrico e máxima segurança.</p>
-            </div>
+                <p>Centro cirúrgico equipado, anestesia inalatória e monitoramento intensivo pré e pós-operatório.</p>
+            </article>
 
-            <div class="service-card">
-                <div class="service-icon">🔬</div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🔬</div>
                 <h3>Exames Laboratoriais</h3>
-                <p>Diagnóstico rápido e preciso através de exames de sangue, fezes, urina e histopatológicos.</p>
-            </div>
+                <p>Diagnósticos ágeis com exames de sangue, imagem, ultrassonografia e análises clínicas integradas.</p>
+            </article>
 
-            <div class="service-card">
-                <div class="service-icon">🧼</div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🧼</div>
                 <h3>Estética e Banho</h3>
-                <p>Cuidados com a higiene, tosa da raça, higienização de ouvidos e corte de unhas com produtos hipoalergênicos.</p>
-            </div>
+                <p>Higiene profissional, tosa especializada e tratamento dermatológico com produtos selecionados.</p>
+            </article>
 
-            <div class="service-card">
-                <div class="service-icon">🚑</div>
-                <h3>Atendimento 24 horas</h3>
-                <p>Equipe de prontidão para emergências e urgências médicas em qualquer momento do dia ou da noite.</p>
-            </div>
+            <article class="service-card">
+                <div class="service-icon" aria-hidden="true">🚑</div>
+                <h3>Atendimento 24 Horas</h3>
+                <p>Pronto-socorro equipado e equipe médica de plantão permanente para urgências e emergências.</p>
+            </article>
 
         </section>
 
         <section class="cta-section">
             <h2>Seu pet precisa de atendimento?</h2>
-            <p>Agende uma consulta rápida pelo WhatsApp com nossos especialistas.</p>
-            <a href="https://wa.me/5500000000000" class="cta-btn" target="_blank">Agendar Consulta</a>
+            <p>Entre em contato e agende um horário diretamente com nossa equipe via WhatsApp.</p>
+            <a href="https://wa.me/5500000000000" class="cta-btn" target="_blank" rel="noopener noreferrer">
+                <span>Agendar Consulta</span>
+            </a>
         </section>
 
     </main>
@@ -223,4 +297,5 @@
     </footer>
 
 </body>
+</html>
 </html>
