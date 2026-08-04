@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Serviços | Clínica Veterinária</title>
+    <style>
+        /* Estilos Globais e Reseta de Borda */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #2a7b6c;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: #1f584d;
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a8e6cf;
+        }
+
+        /* Seção Principal de Serviços */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            color: #2a7b6c;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards de Serviços */
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #2a7b6c;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Call to Action (Agendamento) */
+        .cta-section {
+            background-color: #a8e6cf;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            border-radius: 10px;
+        }
+
+        .cta-section h2 {
+            color: #1f584d;
+            margin-bottom: 1rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #2a7b6c;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #1f584d;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cuidando do Seu Melhor Amigo</h1>
+        <p>Excelência e carinho na medicina veterinária</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+
+    <main class="container">
+        
+        <section class="intro">
+            <h2>Nossos Serviços Especializados</h2>
+            <p>Oferecemos suporte completo para garantir a saúde e o bem-estar do seu pet em todas as fases da vida.</p>
+        </section>
+
+        <section class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Consultas de Rotina</h3>
+                <p>Exames clínicos completos, check-ups preventivos e acompanhamento do desenvolvimento para cães e gatos.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💉</div>
+                <h3>Vacinação e Imunização</h3>
+                <p>Aplicação de vacinas importadas essenciais para proteger seu pet contra as principais doenças virais e bacterianas.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Cirurgias Gerais</h3>
+                <p>Procedimentos cirúrgicos com anestesia inalatória, monitoramento multiparamétrico e máxima segurança.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Exames Laboratoriais</h3>
+                <p>Diagnóstico rápido e preciso através de exames de sangue, fezes, urina e histopatológicos.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🧼</div>
+                <h3>Estética e Banho</h3>
+                <p>Cuidados com a higiene, tosa da raça, higienização de ouvidos e corte de unhas com produtos hipoalergênicos.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚑</div>
+                <h3>Atendimento 24 horas</h3>
+                <p>Equipe de prontidão para emergências e urgências médicas em qualquer momento do dia ou da noite.</p>
+            </div>
+
+        </section>
+
+        <section class="cta-section">
+            <h2>Seu pet precisa de atendimento?</h2>
+            <p>Agende uma consulta rápida pelo WhatsApp com nossos especialistas.</p>
+            <a href="https://wa.me/5500000000000" class="cta-btn" target="_blank">Agendar Consulta</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Clínica Veterinária - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
