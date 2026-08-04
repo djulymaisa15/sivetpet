@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Consulta — VetSaúde</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">🐾 VetSaúde</a>
+      <nav class="nav-links">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#sobre">Sobre Nós</a>
+        <a href="agendamentos.html" class="btn-primary">Agendar Consulta</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="booking-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <h1 class="form-title">Agende uma Consulta</h1>
+        <p class="form-subtitle">Preencha os dados abaixo e entraremos em contato para confirmar o horário do seu pet.</p>
+
+        <form action="#" method="POST" class="booking-form">
+          
+          <fieldset class="form-group-set">
+            <legend>👤 Dados do Tutor</legend>
+            
+            <div class="form-row">
+              <div class="form-control">
+                <label for="nome-tutor">Nome Completo *</label>
+                <input type="text" id="nome-tutor" name="nome_tutor" placeholder="Digite seu nome" required>
+              </div>
+
+              <div class="form-control">
+                <label for="telefone">Telefone / WhatsApp *</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 99999-9999" required>
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group-set">
+            <legend>🐶 Dados do Pet</legend>
+
+            <div class="form-row">
+              <div class="form-control">
+                <label for="nome-pet">Nome do Pet *</label>
+                <input type="text" id="nome-pet" name="nome_pet" placeholder="Ex: Rex, Miau..." required>
+              </div>
+
+              <div class="form-control">
+                <label for="tipo-pet">Espécie *</label>
+                <select id="tipo-pet" name="tipo_pet" required>
+                  <option value="" disabled selected>Selecione...</option>
+                  <option value="Cão">Cão</option>
+                  <option value="Gato">Gato</option>
+                  <option value="Ave">Ave</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group-set">
+            <legend>📅 Detalhes do Agendamento</legend>
+
+            <div class="form-row">
+              <div class="form-control">
+                <label for="servico">Serviço Desejado *</label>
+                <select id="servico" name="servico" required>
+                  <option value="" disabled selected>Selecione o serviço...</option>
+                  <option value="Consulta Geral">Consulta Geral</option>
+                  <option value="Vacinação">Vacinação</option>
+                  <option value="Exames">Exames Laboratoriais</option>
+                  <option value="Cirurgia">Avaliação Cirúrgica</option>
+                </select>
+              </div>
