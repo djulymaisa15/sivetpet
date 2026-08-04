@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Vendas — VetSaúde</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">🐾 VetSaúde</a>
+      <nav class="nav-links">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="agendamentos.html">Agendar Consulta</a>
+        <a href="consultavendas.html" class="btn-primary">Painel de Vendas</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="sales-section">
+    <div class="container">
+      
+      <div class="sales-header">
+        <h1>Gestão e Consulta de Vendas</h1>
+        <p>Acompanhe os serviços prestados, vendas de produtos e status financeiro.</p>
+      </div>
+
+      <div class="dashboard-cards">
+        <div class="dash-card">
+          <span class="dash-title">Faturamento Hoje</span>
+          <span class="dash-value">R$ 1.250,00</span>
+        </div>
+        <div class="dash-card">
+          <span class="dash-title">Vendas do Mês</span>
+          <span class="dash-value">R$ 18.420,00</span>
+        </div>
+        <div class="dash-card">
+          <span class="dash-title">Atendimentos Concluídos</span>
+          <span class="dash-value">42</span>
+        </div>
+      </div>
+
+      <div class="filter-box">
+        <form class="filter-form">
+          <div class="form-control">
+            <label for="busca">Buscar (Cliente ou Pet)</label>
+            <input type="text" id="busca" placeholder="Ex: Carlos ou Rex">
+          </div>
+          <div class="form-control">
+            <label for="data-inicio">Data Inicial</label>
+            <input type="date" id="data-inicio">
+          </div>
+          <div class="form-control">
+            <label for="data-fim">Data Final</label>
+            <input type="date" id="data-fim">
+          </div>
+          <div class="form-control">
+            <label for="status">Status</label>
+            <select id="status">
+              <option value="">Todos</option>
+              <option value="pago">Pago</option>
+              <option value="pendente">Pendente</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-filter">Filtrar</button>
+        </form>
+      </div>
+
+      <div class="table-container">
+        <table class="sales-table">
+          <thead>
+            <tr>
+              <th>Cód.</th>
+              <th>Data</th>
+              <th>Tutor / Pet</th>
+              <th>Serviço / Produto</th>
+              <th>Valor Total</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1042</td>
+              <td>04/08/2026</td>
+              <td>Mariana Silva <br><small>(Pet: Mel)</small></td>
+              <td>Consulta Geral + Vacina V10</td>
+              <td>R$ 280,00</td>
+              <td><span class="status-tag status-paid">Pago</span></td>
+              <td><button class="btn-action">Ver Detalhes</button></td>
+            </tr>
+            <tr>
+              <td>#1041</td>
+              <td>04/08/2026</td>
+              <td>João Pedro <br><small>(Pet: Thor)</small></td>
+              <td>Exames Laboratoriais</td>
+              <td>R$ 150,00</td>
+              <td><span class="status-tag status-paid">Pago</span></td>
+              <td><button class="btn-action">Ver Detalhes</button></td>
+            </tr>
+            <tr>
+              <td>#1040</td>
+              <td>03/08/2026</td>
+              <td>Carla Mendes <br><small>(Pet: Spike)</small></td>
+              <td>Avaliação Cirúrgica</td>
+              <td>R$ 200,00</td>
+              <td><span class="status-tag status-pending">Pendente</span></td>
+              <td><button class="btn-action">Ver Detalhes</button></td>
+            </tr>
+            <tr>
+              <td>#1039</td>
+              <td>02/08/2026</td>
+              <td>Roberto Lima <br><small>(Pet: Nina)</small></td>
+              <td>Ração Terapêutica 10kg</td>
+              <td>R$ 320,00</td>
+              <td><span class="status-tag status-paid">Pago</span></td>
+              <td><button class="btn-action">Ver Detalhes</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h3>🐾 VetSaúde Medicina Veterinária</h3>
+        <p>📍 Rua dos Pets, 123 — Centro</p>
+        <p>📞 (00) 99999-9999 | ✉️ contato@vetsaude.com.br</p>
+      </div>
+      <p class="copyright">&copy; 2026 VetSaúde. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
