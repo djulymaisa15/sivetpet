@@ -1,90 +1,359 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agendar Consulta — VetSaúde</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agende uma consulta para o seu pet. Atendimento rápido e simplificado na nossa Clínica Veterinária.">
+    <title>Agendamento | Clínica Veterinária</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variáveis Globais */
+        :root {
+            --primary-color: #2a7b6c;
+            --primary-dark: #1f584d;
+            --accent-color: #a8e6cf;
+            --bg-color: #f8faf9;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: var(--primary-dark);
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Estrutura Principal */
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .form-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Formulário */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        input, select, textarea {
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background-color: #fff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(42, 123, 108, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Botão de Envio */
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 12px rgba(42, 123, 108, 0.3);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Alternativa do WhatsApp */
+        .whatsapp-opt {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .whatsapp-opt p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #25D366;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">🐾 VetSaúde</a>
-      <nav class="nav-links">
-        <a href="index.html#inicio">Início</a>
-        <a href="index.html#servicos">Serviços</a>
-        <a href="index.html#sobre">Sobre Nós</a>
-        <a href="agendamentos.html" class="btn-primary">Agendar Consulta</a>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <h1>Agende a Consulta do Seu Pet</h1>
+        <p>Preencha os dados abaixo e entraremos em contato para confirmar o horário</p>
+    </header>
 
-  <section class="booking-section">
-    <div class="container">
-      <div class="form-wrapper">
-        <h1 class="form-title">Agende uma Consulta</h1>
-        <p class="form-subtitle">Preencha os dados abaixo e entraremos em contato para confirmar o horário do seu pet.</p>
+    <nav aria-label="Navegação Principal">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="agendamentos.html" class="active">Agendamento</a>
+        <a href="contato.html">Contato</a>
+    </nav>
 
-        <form action="#" method="POST" class="booking-form">
-          
-          <fieldset class="form-group-set">
-            <legend>👤 Dados do Tutor</legend>
-            
-            <div class="form-row">
-              <div class="form-control">
-                <label for="nome-tutor">Nome Completo *</label>
-                <input type="text" id="nome-tutor" name="nome_tutor" placeholder="Digite seu nome" required>
-              </div>
-
-              <div class="form-control">
-                <label for="telefone">Telefone / WhatsApp *</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 99999-9999" required>
-              </div>
+    <main class="container">
+        
+        <div class="form-card">
+            <div class="form-header">
+                <h2>Formulário de Agendamento</h2>
+                <p>Leva menos de 2 minutos para preencher</p>
             </div>
 
-            <div class="form-control">
-              <label for="email">E-mail *</label>
-              <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            <form id="agendamentoForm" action="#" method="POST">
+                <div class="form-grid">
+                    
+                    <div class="form-group full-width">
+                        <label for="nome-tutor">Nome Completo do Tutor *</label>
+                        <input type="text" id="nome-tutor" name="nome-tutor" placeholder="Ex: Maria Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome-pet">Nome do Pet *</label>
+                        <input type="text" id="nome-pet" name="nome-pet" placeholder="Ex: Rex ou Mia" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="especie">Espécie *</label>
+                        <select id="especie" name="especie" required>
+                            <option value="">Selecione...</option>
+                            <option value="Cão">Cão</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Outro">Outro (Aves, Roedores, etc.)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="servico">Serviço Desejado *</label>
+                        <select id="servico" name="servico" required>
+                            <option value="">Selecione o serviço...</option>
+                            <option value="Consulta de Rotina">Consulta de Rotina</option>
+                            <option value="Vacinação">Vacinação</option>
+                            <option value="Exames Laboratoriais">Exames Laboratoriais</option>
+                            <option value="Cirurgia Geral">Cirurgia Geral</option>
+                            <option value="Estética e Banho">Estética e Banho</option>
+                            <option value="Outro">Outro serviço</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data Preferencial *</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Turno Preferencial *</label>
+                        <select id="horario" name="horario" required>
+                            <option value="">Selecione...</option>
+                            <option value="Manhã">Manhã (08:00 - 12:00)</option>
+                            <option value="Tarde">Tarde (13:00 - 18:00)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="observacoes">Observações ou Sintomas do Pet (Opcional)</label>
+                        <textarea id="observacoes" name="observacoes" placeholder="Conte-nos brevemente o motivo da consulta ou alguma necessidade especial do seu pet..."></textarea>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="submit-btn">Solicitar Agendamento</button>
+            </form>
+
+            <div class="whatsapp-opt">
+                <p>Prefere agendar diretamente pelo aplicativo?</p>
+                <a href="https://wa.me/5500000000000" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                    <span>📱 Agendar via WhatsApp</span>
+                </a>
             </div>
-          </fieldset>
+        </div>
 
-          <fieldset class="form-group-set">
-            <legend>🐶 Dados do Pet</legend>
+    </main>
 
-            <div class="form-row">
-              <div class="form-control">
-                <label for="nome-pet">Nome do Pet *</label>
-                <input type="text" id="nome-pet" name="nome_pet" placeholder="Ex: Rex, Miau..." required>
-              </div>
+    <footer>
+        <p>&copy; 2026 Clínica Veterinária - Todos os direitos reservados.</p>
+    </footer>
 
-              <div class="form-control">
-                <label for="tipo-pet">Espécie *</label>
-                <select id="tipo-pet" name="tipo_pet" required>
-                  <option value="" disabled selected>Selecione...</option>
-                  <option value="Cão">Cão</option>
-                  <option value="Gato">Gato</option>
-                  <option value="Ave">Ave</option>
-                  <option value="Outro">Outro</option>
-                </select>
-              </div>
-            </div>
-          </fieldset>
+    <script>
+        // Impede que o usuário selecione datas passadas no calendário
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('data').setAttribute('min', today);
+    </script>
 
-          <fieldset class="form-group-set">
-            <legend>📅 Detalhes do Agendamento</legend>
-
-            <div class="form-row">
-              <div class="form-control">
-                <label for="servico">Serviço Desejado *</label>
-                <select id="servico" name="servico" required>
-                  <option value="" disabled selected>Selecione o serviço...</option>
-                  <option value="Consulta Geral">Consulta Geral</option>
-                  <option value="Vacinação">Vacinação</option>
-                  <option value="Exames">Exames Laboratoriais</option>
-                  <option value="Cirurgia">Avaliação Cirúrgica</option>
-                </select>
-              </div>
+</body>
+</html>
