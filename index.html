@@ -3,360 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agende uma consulta para o seu pet. Atendimento rápido e simplificado na nossa Clínica Veterinária.">
-    <title>Agendamento | Clínica Veterinária</title>
+    <meta name="description" content="Clínica Veterinária - Cuidado e saúde para o seu pet com amor e profissionalismo.">
+    <title>Início | Clínica Veterinária</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* Variáveis Globais com Paleta Roxo & Lilás */
-        :root {
-            --primary-color: #7b4397;      /* Roxo principal */
-            --primary-dark: #5c2c75;       /* Roxo escuro */
-            --accent-color: #e0bbe4;       /* Lilás suave */
-            --bg-color: #fcf8ff;           /* Fundo com leve tom lilás */
-            --card-bg: #ffffff;
-            --text-main: #2d2338;          /* Texto principal */
-            --text-muted: #6b5c7e;         /* Texto secundário */
-            --border-color: #e8dcf0;       /* Borda lilás clara */
-            --shadow-sm: 0 4px 6px -1px rgba(123, 67, 151, 0.05);
-            --shadow-lg: 0 10px 25px -5px rgba(123, 67, 151, 0.15);
-            --radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Navegação */
-        nav {
-            background-color: var(--primary-dark);
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 18px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--accent-color);
-        }
-
-        /* Estrutura Principal */
-        .container {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .form-card {
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Formulário */
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        input, select, textarea {
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            background-color: #faf8fc;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-            outline: none;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary-color);
-            background-color: #fff;
-            box-shadow: 0 0 0 3px rgba(123, 67, 151, 0.15);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        /* Botão de Envio */
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            box-shadow: 0 4px 12px rgba(123, 67, 151, 0.3);
-        }
-
-        .submit-btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Alternativa do WhatsApp */
-        .whatsapp-opt {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            background-color: rgba(224, 187, 228, 0.15);
-            border-radius: 8px;
-            padding: 1.5rem 1rem;
-        }
-
-        .whatsapp-opt p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #25D366;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s ease;
-        }
-
-        .whatsapp-btn:hover {
-            opacity: 0.8;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #251b2e;
-            color: #bfa8ce;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsividade */
-        @media (max-width: 600px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .form-card {
-                padding: 1.5rem;
-            }
-
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            nav a {
-                display: inline-block;
-                margin: 5px 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Agende a Consulta do Seu Pet</h1>
-        <p>Preencha os dados abaixo e entraremos em contato para confirmar o horário</p>
+        <h1>Clínica Veterinária</h1>
+        <p>Cuidado, ciência e carinho para quem você ama</p>
     </header>
 
     <nav aria-label="Navegação Principal">
-        <a href="index.html">Início</a>
+        <a href="index.html" class="active">Início</a>
         <a href="sobre.html">Sobre Nós</a>
         <a href="servicos.html">Serviços</a>
-        <a href="agendamentos.html" class="active">Agendamento</a>
+        <a href="agendamentos.html">Agendamento</a>
         <a href="contato.html">Contato</a>
     </nav>
 
     <main class="container">
-        
-        <div class="form-card">
-            <div class="form-header">
-                <h2>Formulário de Agendamento</h2>
-                <p>Leva menos de 2 minutos para preencher</p>
-            </div>
 
-            <form id="agendamentoForm" action="#" method="POST">
-                <div class="form-grid">
-                    
-                    <div class="form-group full-width">
-                        <label for="nome-tutor">Nome Completo do Tutor *</label>
-                        <input type="text" id="nome-tutor" name="nome-tutor" placeholder="Ex: Maria Silva" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefone">Telefone / WhatsApp *</label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nome-pet">Nome do Pet *</label>
-                        <input type="text" id="nome-pet" name="nome-pet" placeholder="Ex: Rex ou Mia" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="especie">Espécie *</label>
-                        <select id="especie" name="especie" required>
-                            <option value="">Selecione...</option>
-                            <option value="Cão">Cão</option>
-                            <option value="Gato">Gato</option>
-                            <option value="Outro">Outro (Aves, Roedores, etc.)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="servico">Serviço Desejado *</label>
-                        <select id="servico" name="servico" required>
-                            <option value="">Selecione o serviço...</option>
-                            <option value="Consulta de Rotina">Consulta de Rotina</option>
-                            <option value="Vacinação">Vacinação</option>
-                            <option value="Exames Laboratoriais">Exames Laboratoriais</option>
-                            <option value="Cirurgia Geral">Cirurgia Geral</option>
-                            <option value="Estética e Banho">Estética e Banho</option>
-                            <option value="Outro">Outro serviço</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="data">Data Preferencial *</label>
-                        <input type="date" id="data" name="data" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="horario">Turno Preferencial *</label>
-                        <select id="horario" name="horario" required>
-                            <option value="">Selecione...</option>
-                            <option value="Manhã">Manhã (08:00 - 12:00)</option>
-                            <option value="Tarde">Tarde (13:00 - 18:00)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="observacoes">Observações ou Sintomas do Pet (Opcional)</label>
-                        <textarea id="observacoes" name="observacoes" placeholder="Conte-nos brevemente o motivo da consulta ou alguma necessidade especial do seu pet..."></textarea>
-                    </div>
-
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Bem-vindo à nossa Clínica Veterinária</h2>
+                <p>
+                    Oferecemos atendimento completo e humanizado para cães, gatos e outros pets. 
+                    Nossa equipe está pronta para cuidar da saúde e do bem-estar do seu animal com excelência.
+                </p>
+                <div>
+                    <a href="agendamentos.html" class="btn">Agendar Consulta</a>
+                    <a href="servicos.html" class="btn btn-outline">Ver Serviços</a>
                 </div>
-
-                <button type="submit" class="submit-btn">Solicitar Agendamento</button>
-            </form>
-
-            <div class="whatsapp-opt">
-                <p>Prefere agendar diretamente pelo aplicativo?</p>
-                <a href="https://wa.me/5500000000000" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                    <span>📱 Agendar via WhatsApp</span>
-                </a>
             </div>
+            <div class="hero-visual">
+                <div class="hero-emoji">🐶🐱🐰</div>
+                <div class="hero-badge">Saúde • Carinho • Confiança</div>
+            </div>
+        </section>
+
+        <!-- Serviços em destaque -->
+        <section style="margin-top: 4rem;">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>Atendimento completo para a saúde do seu pet</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="servicos-grid">
+                <div class="card">
+                    <div class="card-icon">🩺</div>
+                    <h3>Consulta de Rotina</h3>
+                    <p>Check-ups, exames preventivos e acompanhamento da saúde do seu pet.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💉</div>
+                    <h3>Vacinação</h3>
+                    <p>Vacinas atualizadas e protocolo completo de imunização.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔬</div>
+                    <h3>Exames</h3>
+                    <p>Laboratório e diagnóstico por imagem para resultados precisos.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏥</div>
+                    <h3>Cirurgias</h3>
+                    <p>Procedimentos eletivos e de emergência com equipe especializada.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✂️</div>
+                    <h3>Estética e Banho</h3>
+                    <p>Banho, tosa e cuidados estéticos com produtos seguros.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">❤️</div>
+                    <h3>Emergências</h3>
+                    <p>Atendimento rápido quando seu pet mais precisa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre resumido -->
+        <section style="margin-top: 4rem;">
+            <div class="section-title">
+                <h2>Por que nos escolher?</h2>
+                <p>Compromisso com a saúde animal</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="sobre-box">
+                <div class="sobre-texto">
+                    <p>
+                        Nossa clínica une conhecimento técnico, estrutura moderna e muito amor pelos animais. 
+                        Cada consulta é feita com atenção e respeito ao vínculo entre tutor e pet.
+                    </p>
+                    <p>
+                        Trabalhamos com transparência, ética e foco no bem-estar do animal em todas as etapas do atendimento.
+                    </p>
+                    <div class="destaque">
+                        “Cuidar do seu pet é cuidar de quem faz parte da sua família.”
+                    </div>
+                </div>
+                <div class="hero-visual" style="padding: 2rem;">
+                    <div class="hero-emoji" style="font-size: 4rem;">🐾🩺</div>
+                    <div class="hero-badge">Profissionalismo + Amor</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>Pronto para cuidar do seu pet?</h2>
+            <p>Agende uma consulta de forma rápida e simples. Estamos prontos para receber vocês!</p>
+            <a href="agendamentos.html" class="btn">Ir para Agendamento</a>
         </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Clínica Veterinária - Todos os direitos reservados.</p>
+        <p>&copy; 2026 Clínica Veterinária — Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('data').setAttribute('min', today);
-    </script>
 
 </body>
 </html>
