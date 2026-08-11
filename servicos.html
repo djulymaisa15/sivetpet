@@ -3,16 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serviços da Clínica Veterinária em Capanema - consultas, vacinação, exames, cirurgias e mais.">
     <title>Serviços | Clínica Veterinária</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .servico-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .servico-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.8rem 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 1.4rem;
+            align-items: flex-start;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .servico-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px -8px rgba(123, 67, 151, 0.2);
+        }
+        .servico-icone {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: #f3e8ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+        }
+        .servico-info h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+        .servico-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.6rem;
+        }
+        .servico-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .servico-info ul li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 0.2rem 0;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+        .servico-info ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        @media (max-width: 600px) {
+            .servico-card {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <h1>Nossos Serviços</h1>
-        <p>Atendimento completo para a saúde do seu pet</p>
+        <p>Cuidado completo para a saúde do seu pet</p>
     </header>
 
     <nav aria-label="Navegação Principal">
@@ -24,54 +98,132 @@
     </nav>
 
     <main class="container">
+
         <div class="section-title">
             <h2>O que oferecemos</h2>
-            <p>Cuidado completo em um só lugar</p>
+            <p>Atendimento veterinário completo em Capanema</p>
             <div class="linha"></div>
         </div>
 
-        <div class="servicos-grid">
-            <div class="card">
-                <div class="card-icon">🩺</div>
-                <h3>Consulta de Rotina</h3>
-                <p>Check-ups, exames preventivos e acompanhamento da saúde do seu pet.</p>
+        <div class="servico-lista">
+
+            <div class="servico-card">
+                <div class="servico-icone">🩺</div>
+                <div class="servico-info">
+                    <h3>Consulta de Rotina</h3>
+                    <p>
+                        Avaliação completa da saúde do seu pet, com orientação 
+                        preventiva e acompanhamento contínuo.
+                    </p>
+                    <ul>
+                        <li>Check-up geral</li>
+                        <li>Avaliação de peso e nutrição</li>
+                        <li>Orientações de cuidados diários</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">💉</div>
-                <h3>Vacinação</h3>
-                <p>Vacinas atualizadas e protocolo completo de imunização.</p>
+
+            <div class="servico-card">
+                <div class="servico-icone">💉</div>
+                <div class="servico-info">
+                    <h3>Vacinação</h3>
+                    <p>
+                        Protocolos de imunização atualizados para cães, gatos 
+                        e outras espécies, com registro completo.
+                    </p>
+                    <ul>
+                        <li>Vacinas polivalentes</li>
+                        <li>Antirrábica</li>
+                        <li>Controle de verminoses</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">🔬</div>
-                <h3>Exames Laboratoriais</h3>
-                <p>Análises clínicas e diagnóstico por imagem com resultados precisos.</p>
+
+            <div class="servico-card">
+                <div class="servico-icone">🔬</div>
+                <div class="servico-info">
+                    <h3>Exames Laboratoriais</h3>
+                    <p>
+                        Diagnóstico preciso para identificar problemas de saúde 
+                        e indicar o tratamento mais adequado.
+                    </p>
+                    <ul>
+                        <li>Hemograma e bioquímica</li>
+                        <li>Exames de fezes e urina</li>
+                        <li>Testes específicos sob orientação</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">🏥</div>
-                <h3>Cirurgia Geral</h3>
-                <p>Procedimentos eletivos e de emergência com equipe especializada.</p>
+
+            <div class="servico-card">
+                <div class="servico-icone">🏥</div>
+                <div class="servico-info">
+                    <h3>Cirurgias</h3>
+                    <p>
+                        Procedimentos cirúrgicos realizados com segurança, 
+                        acompanhamento e cuidados no pós-operatório.
+                    </p>
+                    <ul>
+                        <li>Castração</li>
+                        <li>Cirurgias eletivas</li>
+                        <li>Procedimentos de emergência</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">✂️</div>
-                <h3>Estética e Banho</h3>
-                <p>Banho, tosa e cuidados estéticos com produtos seguros para pets.</p>
+
+            <div class="servico-card">
+                <div class="servico-icone">✂️</div>
+                <div class="servico-info">
+                    <h3>Estética e Banho</h3>
+                    <p>
+                        Cuidados de higiene e estética com produtos seguros 
+                        e adequados para cada tipo de pelagem.
+                    </p>
+                    <ul>
+                        <li>Banho e tosa</li>
+                        <li>Higiene de ouvidos e unhas</li>
+                        <li>Cuidados com a pele</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">❤️</div>
-                <h3>Atendimento de Emergência</h3>
-                <p>Suporte rápido quando seu pet mais precisa de ajuda.</p>
+
+            <div class="servico-card">
+                <div class="servico-icone">❤️</div>
+                <div class="servico-info">
+                    <h3>Atendimento de Emergência</h3>
+                    <p>
+                        Suporte rápido quando o seu pet precisa de ajuda 
+                        urgente, com avaliação e orientação imediata.
+                    </p>
+                    <ul>
+                        <li>Avaliação de urgência</li>
+                        <li>Primeiros cuidados</li>
+                        <li>Encaminhamento quando necessário</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta-box" style="margin-top: 3.5rem;">
+            <h2>Quer agendar um desses serviços?</h2>
+            <p>Escolha o melhor horário e fale com a gente. Estamos prontos para cuidar do seu pet.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;">
+                <a href="agendamentos.html" class="btn">Agendar Online</a>
+                <a href="https://wa.me/5546988283215" class="btn" target="_blank" rel="noopener noreferrer" style="background: #25D366; box-shadow: 0 4px 14px rgba(37,211,102,0.35);">
+                    WhatsApp
+                </a>
             </div>
         </div>
 
-        <div class="cta-box" style="margin-top: 3rem;">
-            <h2>Quer agendar um desses serviços?</h2>
-            <p>É rápido e simples. Escolha o melhor horário para você e seu pet.</p>
-            <a href="agendamentos.html" class="btn">Agendar Agora</a>
-        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Clínica Veterinária — Todos os direitos reservados.</p>
+        <p>&copy; 2026 Clínica Veterinária — Capanema / PR</p>
+        <p style="margin-top: 0.4rem; font-size: 0.85rem;">
+            Rua Ataides Roberto Eicher — São Cristóvão
+        </p>
     </footer>
+
 </body>
 </html>
