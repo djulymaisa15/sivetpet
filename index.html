@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Clínica Veterinária - Cuidado e saúde para o seu pet com amor e profissionalismo.">
+    <meta name="description" content="Clínica Veterinária em Capanema - PR. Cuidado e saúde para o seu pet.">
     <title>Início | Clínica Veterinária</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,50 +11,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.2rem;
-            margin: 3rem 0 1rem;
+        .hero-limpo {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 3.5rem;
+            padding-top: 1rem;
         }
-        .stat-item {
+        .hero-limpo h2 {
+            font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+            color: var(--primary-dark);
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+        .hero-limpo p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+        }
+        .hero-botoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        .hero-botoes .btn-outline { margin-left: 0; }
+
+        .destaques {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.3rem;
+            margin-bottom: 4rem;
+        }
+        .destaque-item {
             background: var(--card-bg);
-            border-radius: 14px;
-            padding: 1.4rem 1rem;
+            border-radius: var(--radius);
+            padding: 1.8rem 1.4rem;
             text-align: center;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border-color);
         }
-        .stat-item strong {
-            display: block;
-            font-size: 1.9rem;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-        }
-        .stat-item span {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-        }
+        .destaque-item .icone { font-size: 2.2rem; margin-bottom: 0.7rem; }
+        .destaque-item h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .destaque-item p { color: var(--text-muted); font-size: 0.9rem; }
 
-        .beneficios-grid {
+        .servicos-home {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.3rem;
         }
-        .beneficio {
+        .servico-item {
             background: var(--card-bg);
             border-radius: var(--radius);
-            padding: 1.6rem;
+            padding: 1.5rem;
             box-shadow: var(--shadow-lg);
             border: 1px solid var(--border-color);
             display: flex;
             gap: 1rem;
             align-items: flex-start;
+            transition: transform 0.25s ease;
         }
-        .beneficio-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
+        .servico-item:hover { transform: translateY(-4px); }
+        .servico-item .icone {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
             background: #f3e8ff;
             border-radius: 12px;
             display: flex;
@@ -62,86 +83,28 @@
             justify-content: center;
             font-size: 1.4rem;
         }
-        .beneficio h3 {
-            color: var(--primary-dark);
-            font-size: 1.05rem;
-            margin-bottom: 0.35rem;
-        }
-        .beneficio p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .servico-item h3 { color: var(--primary-dark); font-size: 1.05rem; margin-bottom: 0.3rem; }
+        .servico-item p { color: var(--text-muted); font-size: 0.9rem; }
 
-        .passos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .passo {
+        .bloco-sobre {
             background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 2rem 1.5rem;
+            border-radius: 18px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
             text-align: center;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .passo-num {
-            width: 42px;
-            height: 42px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin: 0 auto 1rem;
-        }
-        .passo h3 {
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        .passo p {
+        .bloco-sobre p {
             color: var(--text-muted);
-            font-size: 0.92rem;
-        }
-
-        .depoimentos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .depoimento {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--primary-color);
-        }
-        .depoimento p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            font-style: italic;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
             line-height: 1.7;
         }
-        .depoimento .autor {
-            font-weight: 600;
-            color: var(--primary-dark);
-            font-size: 0.95rem;
-        }
-        .depoimento .estrelas {
-            color: #f59e0b;
-            margin-bottom: 0.6rem;
-        }
 
-        @media (max-width: 800px) {
-            .stats-bar { grid-template-columns: 1fr 1fr; }
-            .passos { grid-template-columns: 1fr; }
+        @media (max-width: 700px) {
+            .destaques { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -149,7 +112,7 @@
 
     <header>
         <h1>Clínica Veterinária</h1>
-        <p>Cuidado, ciência e carinho para quem você ama</p>
+        <p>Capanema — PR</p>
     </header>
 
     <nav aria-label="Navegação Principal">
@@ -162,83 +125,71 @@
 
     <main class="container">
 
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-text">
-                <h2>Saúde e carinho para o seu pet em um só lugar</h2>
-                <p>
-                    Atendimento veterinário completo e humanizado para cães, gatos e outros pets. 
-                    Nossa equipe cuida com excelência técnica e muito amor.
-                </p>
-                <div>
-                    <a href="agendamentos.html" class="btn">Agendar Consulta</a>
-                    <a href="servicos.html" class="btn btn-outline">Ver Serviços</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-emoji">🐶🐱🐰</div>
-                <div class="hero-badge">Saúde • Carinho • Confiança</div>
+        <section class="hero-limpo">
+            <h2>Cuidado de verdade para quem você ama</h2>
+            <p>
+                Atendimento veterinário completo para cães, gatos e outros pets. 
+                Equipe preparada, ambiente acolhedor e foco no bem-estar do seu animal.
+            </p>
+            <div class="hero-botoes">
+                <a href="agendamentos.html" class="btn">Agendar Consulta</a>
+                <a href="contato.html" class="btn btn-outline">Fale Conosco</a>
             </div>
         </section>
 
-        <!-- NÚMEROS -->
-        <div class="stats-bar">
-            <div class="stat-item">
-                <strong>15+</strong>
-                <span>Anos de experiência</span>
+        <div class="destaques">
+            <div class="destaque-item">
+                <div class="icone">🩺</div>
+                <h3>Consultas</h3>
+                <p>Atendimento clínico completo e preventivo</p>
             </div>
-            <div class="stat-item">
-                <strong>8 mil+</strong>
-                <span>Pets atendidos</span>
+            <div class="destaque-item">
+                <div class="icone">💉</div>
+                <h3>Vacinação</h3>
+                <p>Protocolos atualizados para cada espécie</p>
             </div>
-            <div class="stat-item">
-                <strong>12</strong>
-                <span>Profissionais</span>
-            </div>
-            <div class="stat-item">
-                <strong>98%</strong>
-                <span>Satisfação</span>
+            <div class="destaque-item">
+                <div class="icone">🏥</div>
+                <h3>Cirurgias</h3>
+                <p>Procedimentos com segurança e cuidado</p>
             </div>
         </div>
 
-        <!-- SERVIÇOS -->
-        <section style="margin-top: 4rem;">
+        <section>
             <div class="section-title">
-                <h2>Nossos Serviços</h2>
-                <p>Atendimento completo para a saúde do seu pet</p>
+                <h2>O que oferecemos</h2>
+                <p>Serviços pensados para a saúde do seu pet</p>
                 <div class="linha"></div>
             </div>
 
-            <div class="servicos-grid">
-                <div class="card">
-                    <div class="card-icon">🩺</div>
-                    <h3>Consulta de Rotina</h3>
-                    <p>Check-ups, exames preventivos e acompanhamento contínuo da saúde.</p>
+            <div class="servicos-home">
+                <div class="servico-item">
+                    <div class="icone">🩺</div>
+                    <div>
+                        <h3>Consulta de Rotina</h3>
+                        <p>Check-ups e acompanhamento da saúde do seu pet.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">💉</div>
-                    <h3>Vacinação</h3>
-                    <p>Protocolo completo de imunização com vacinas atualizadas.</p>
+                <div class="servico-item">
+                    <div class="icone">🔬</div>
+                    <div>
+                        <h3>Exames</h3>
+                        <p>Diagnóstico preciso com exames laboratoriais.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🔬</div>
-                    <h3>Exames</h3>
-                    <p>Laboratório e diagnóstico por imagem com resultados precisos.</p>
+                <div class="servico-item">
+                    <div class="icone">✂️</div>
+                    <div>
+                        <h3>Estética e Banho</h3>
+                        <p>Banho, tosa e cuidados com produtos seguros.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🏥</div>
-                    <h3>Cirurgias</h3>
-                    <p>Procedimentos eletivos e de emergência com equipe especializada.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">✂️</div>
-                    <h3>Estética e Banho</h3>
-                    <p>Banho, tosa e cuidados estéticos com produtos seguros.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">❤️</div>
-                    <h3>Emergências</h3>
-                    <p>Atendimento rápido e cuidadoso quando seu pet mais precisa.</p>
+                <div class="servico-item">
+                    <div class="icone">❤️</div>
+                    <div>
+                        <h3>Emergências</h3>
+                        <p>Atendimento quando seu pet mais precisa.</p>
+                    </div>
                 </div>
             </div>
 
@@ -247,111 +198,50 @@
             </div>
         </section>
 
-        <!-- POR QUE ESCOLHER -->
         <section style="margin-top: 4.5rem;">
             <div class="section-title">
-                <h2>Por que nos escolher?</h2>
-                <p>O diferencial está no cuidado de cada detalhe</p>
+                <h2>Sobre a clínica</h2>
+                <p>Compromisso com o bem-estar animal</p>
                 <div class="linha"></div>
             </div>
 
-            <div class="beneficios-grid">
-                <div class="beneficio">
-                    <div class="beneficio-icon">🤝</div>
-                    <div>
-                        <h3>Atendimento Humanizado</h3>
-                        <p>Cada pet e cada tutor são tratados com atenção e respeito.</p>
-                    </div>
+            <div class="bloco-sobre">
+                <p>
+                    Somos uma clínica veterinária em Capanema dedicada ao cuidado 
+                    integral dos pets. Trabalhamos com ética, transparência e muito 
+                    carinho em cada atendimento.
+                </p>
+                <p>
+                    Nossa equipe está pronta para cuidar da saúde do seu animal 
+                    com atenção e respeito ao vínculo entre tutor e pet.
+                </p>
+                <div class="destaque">
+                    “Cuidar do seu pet é cuidar de quem faz parte da sua família.”
                 </div>
-                <div class="beneficio">
-                    <div class="beneficio-icon">👨‍⚕️</div>
-                    <div>
-                        <h3>Equipe Qualificada</h3>
-                        <p>Profissionais atualizados e experientes em diversas áreas.</p>
-                    </div>
-                </div>
-                <div class="beneficio">
-                    <div class="beneficio-icon">🔍</div>
-                    <div>
-                        <h3>Transparência Total</h3>
-                        <p>Explicamos cada etapa do tratamento de forma clara.</p>
-                    </div>
-                </div>
-                <div class="beneficio">
-                    <div class="beneficio-icon">🏥</div>
-                    <div>
-                        <h3>Estrutura Completa</h3>
-                        <p>Consultórios, exames e cirurgias em um só lugar.</p>
-                    </div>
+                <div style="margin-top: 1.5rem;">
+                    <a href="sobre.html" class="btn btn-outline" style="margin-left: 0;">Conhecer mais</a>
                 </div>
             </div>
         </section>
 
-        <!-- COMO FUNCIONA -->
-        <section style="margin-top: 4.5rem;">
-            <div class="section-title">
-                <h2>Como funciona o agendamento?</h2>
-                <p>Simples, rápido e sem complicação</p>
-                <div class="linha"></div>
+        <div class="cta-box" style="margin-top: 4rem;">
+            <h2>Agende uma consulta</h2>
+            <p>Preencha o formulário online ou fale conosco pelo WhatsApp.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;">
+                <a href="agendamentos.html" class="btn">Agendar Online</a>
+                <a href="https://wa.me/5546988283215" class="btn" target="_blank" rel="noopener noreferrer" style="background: #25D366; box-shadow: 0 4px 14px rgba(37,211,102,0.35);">
+                    WhatsApp
+                </a>
             </div>
-
-            <div class="passos">
-                <div class="passo">
-                    <div class="passo-num">1</div>
-                    <h3>Preencha o formulário</h3>
-                    <p>Informe os dados do tutor, do pet e o serviço desejado.</p>
-                </div>
-                <div class="passo">
-                    <div class="passo-num">2</div>
-                    <h3>Escolha data e turno</h3>
-                    <p>Selecione o dia e o período que melhor se encaixam na sua rotina.</p>
-                </div>
-                <div class="passo">
-                    <div class="passo-num">3</div>
-                    <h3>Confirmação</h3>
-                    <p>Entramos em contato para confirmar o horário da consulta.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- DEPOIMENTOS -->
-        <section style="margin-top: 4.5rem;">
-            <div class="section-title">
-                <h2>O que dizem nossos tutores</h2>
-                <p>Depoimentos de quem confia no nosso cuidado</p>
-                <div class="linha"></div>
-            </div>
-
-            <div class="depoimentos">
-                <div class="depoimento">
-                    <div class="estrelas">★★★★★</div>
-                    <p>“Atendimento excelente! A equipe foi super atenciosa com o meu cachorro. Recomendo de olhos fechados.”</p>
-                    <div class="autor">— Maria S., tutora do Thor</div>
-                </div>
-                <div class="depoimento">
-                    <div class="estrelas">★★★★★</div>
-                    <p>“Levei minha gata para vacinar e fiquei muito satisfeita. Ambiente limpo, profissionais carinhosos e explicações claras.”</p>
-                    <div class="autor">— Juliana R., tutora da Luna</div>
-                </div>
-                <div class="depoimento">
-                    <div class="estrelas">★★★★★</div>
-                    <p>“Fizemos uma cirurgia de emergência e o cuidado foi impecável do início ao fim. Muito gratos por tudo!”</p>
-                    <div class="autor">— Carlos M., tutor do Bob</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
-        <div class="cta-box" style="margin-top: 4.5rem;">
-            <h2>Pronto para cuidar do seu pet?</h2>
-            <p>Agende uma consulta de forma rápida e simples. Estamos prontos para receber vocês com carinho!</p>
-            <a href="agendamentos.html" class="btn">Agendar Consulta Agora</a>
         </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Clínica Veterinária — Todos os direitos reservados.</p>
+        <p>&copy; 2026 Clínica Veterinária — Capanema / PR</p>
+        <p style="margin-top: 0.4rem; font-size: 0.85rem;">
+            Rua Ataides Roberto Eicher — São Cristóvão
+        </p>
     </footer>
 
 </body>
