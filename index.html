@@ -10,6 +10,140 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin: 3rem 0 1rem;
+        }
+        .stat-item {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 1.4rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        .stat-item strong {
+            display: block;
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+        .stat-item span {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.4rem;
+        }
+        .beneficio {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.6rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .beneficio-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: #f3e8ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+        .beneficio h3 {
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+        .beneficio p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .passos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .passo {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        .passo-num {
+            width: 42px;
+            height: 42px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 1rem;
+        }
+        .passo h3 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .passo p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .depoimentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .depoimento {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+        }
+        .depoimento p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .depoimento .autor {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+        }
+        .depoimento .estrelas {
+            color: #f59e0b;
+            margin-bottom: 0.6rem;
+        }
+
+        @media (max-width: 800px) {
+            .stats-bar { grid-template-columns: 1fr 1fr; }
+            .passos { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -28,13 +162,13 @@
 
     <main class="container">
 
-        <!-- Hero -->
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-text">
-                <h2>Bem-vindo à nossa Clínica Veterinária</h2>
+                <h2>Saúde e carinho para o seu pet em um só lugar</h2>
                 <p>
-                    Oferecemos atendimento completo e humanizado para cães, gatos e outros pets. 
-                    Nossa equipe está pronta para cuidar da saúde e do bem-estar do seu animal com excelência.
+                    Atendimento veterinário completo e humanizado para cães, gatos e outros pets. 
+                    Nossa equipe cuida com excelência técnica e muito amor.
                 </p>
                 <div>
                     <a href="agendamentos.html" class="btn">Agendar Consulta</a>
@@ -47,7 +181,27 @@
             </div>
         </section>
 
-        <!-- Serviços em destaque -->
+        <!-- NÚMEROS -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <strong>15+</strong>
+                <span>Anos de experiência</span>
+            </div>
+            <div class="stat-item">
+                <strong>8 mil+</strong>
+                <span>Pets atendidos</span>
+            </div>
+            <div class="stat-item">
+                <strong>12</strong>
+                <span>Profissionais</span>
+            </div>
+            <div class="stat-item">
+                <strong>98%</strong>
+                <span>Satisfação</span>
+            </div>
+        </div>
+
+        <!-- SERVIÇOS -->
         <section style="margin-top: 4rem;">
             <div class="section-title">
                 <h2>Nossos Serviços</h2>
@@ -59,17 +213,17 @@
                 <div class="card">
                     <div class="card-icon">🩺</div>
                     <h3>Consulta de Rotina</h3>
-                    <p>Check-ups, exames preventivos e acompanhamento da saúde do seu pet.</p>
+                    <p>Check-ups, exames preventivos e acompanhamento contínuo da saúde.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">💉</div>
                     <h3>Vacinação</h3>
-                    <p>Vacinas atualizadas e protocolo completo de imunização.</p>
+                    <p>Protocolo completo de imunização com vacinas atualizadas.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🔬</div>
                     <h3>Exames</h3>
-                    <p>Laboratório e diagnóstico por imagem para resultados precisos.</p>
+                    <p>Laboratório e diagnóstico por imagem com resultados precisos.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🏥</div>
@@ -84,44 +238,114 @@
                 <div class="card">
                     <div class="card-icon">❤️</div>
                     <h3>Emergências</h3>
-                    <p>Atendimento rápido quando seu pet mais precisa.</p>
+                    <p>Atendimento rápido e cuidadoso quando seu pet mais precisa.</p>
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="servicos.html" class="btn btn-outline" style="margin-left: 0;">Ver todos os serviços</a>
             </div>
         </section>
 
-        <!-- Sobre resumido -->
-        <section style="margin-top: 4rem;">
+        <!-- POR QUE ESCOLHER -->
+        <section style="margin-top: 4.5rem;">
             <div class="section-title">
                 <h2>Por que nos escolher?</h2>
-                <p>Compromisso com a saúde animal</p>
+                <p>O diferencial está no cuidado de cada detalhe</p>
                 <div class="linha"></div>
             </div>
 
-            <div class="sobre-box">
-                <div class="sobre-texto">
-                    <p>
-                        Nossa clínica une conhecimento técnico, estrutura moderna e muito amor pelos animais. 
-                        Cada consulta é feita com atenção e respeito ao vínculo entre tutor e pet.
-                    </p>
-                    <p>
-                        Trabalhamos com transparência, ética e foco no bem-estar do animal em todas as etapas do atendimento.
-                    </p>
-                    <div class="destaque">
-                        “Cuidar do seu pet é cuidar de quem faz parte da sua família.”
+            <div class="beneficios-grid">
+                <div class="beneficio">
+                    <div class="beneficio-icon">🤝</div>
+                    <div>
+                        <h3>Atendimento Humanizado</h3>
+                        <p>Cada pet e cada tutor são tratados com atenção e respeito.</p>
                     </div>
                 </div>
-                <div class="hero-visual" style="padding: 2rem;">
-                    <div class="hero-emoji" style="font-size: 4rem;">🐾🩺</div>
-                    <div class="hero-badge">Profissionalismo + Amor</div>
+                <div class="beneficio">
+                    <div class="beneficio-icon">👨‍⚕️</div>
+                    <div>
+                        <h3>Equipe Qualificada</h3>
+                        <p>Profissionais atualizados e experientes em diversas áreas.</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <div class="beneficio-icon">🔍</div>
+                    <div>
+                        <h3>Transparência Total</h3>
+                        <p>Explicamos cada etapa do tratamento de forma clara.</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <div class="beneficio-icon">🏥</div>
+                    <div>
+                        <h3>Estrutura Completa</h3>
+                        <p>Consultórios, exames e cirurgias em um só lugar.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <div class="cta-box">
+        <!-- COMO FUNCIONA -->
+        <section style="margin-top: 4.5rem;">
+            <div class="section-title">
+                <h2>Como funciona o agendamento?</h2>
+                <p>Simples, rápido e sem complicação</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="passos">
+                <div class="passo">
+                    <div class="passo-num">1</div>
+                    <h3>Preencha o formulário</h3>
+                    <p>Informe os dados do tutor, do pet e o serviço desejado.</p>
+                </div>
+                <div class="passo">
+                    <div class="passo-num">2</div>
+                    <h3>Escolha data e turno</h3>
+                    <p>Selecione o dia e o período que melhor se encaixam na sua rotina.</p>
+                </div>
+                <div class="passo">
+                    <div class="passo-num">3</div>
+                    <h3>Confirmação</h3>
+                    <p>Entramos em contato para confirmar o horário da consulta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section style="margin-top: 4.5rem;">
+            <div class="section-title">
+                <h2>O que dizem nossos tutores</h2>
+                <p>Depoimentos de quem confia no nosso cuidado</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="depoimentos">
+                <div class="depoimento">
+                    <div class="estrelas">★★★★★</div>
+                    <p>“Atendimento excelente! A equipe foi super atenciosa com o meu cachorro. Recomendo de olhos fechados.”</p>
+                    <div class="autor">— Maria S., tutora do Thor</div>
+                </div>
+                <div class="depoimento">
+                    <div class="estrelas">★★★★★</div>
+                    <p>“Levei minha gata para vacinar e fiquei muito satisfeita. Ambiente limpo, profissionais carinhosos e explicações claras.”</p>
+                    <div class="autor">— Juliana R., tutora da Luna</div>
+                </div>
+                <div class="depoimento">
+                    <div class="estrelas">★★★★★</div>
+                    <p>“Fizemos uma cirurgia de emergência e o cuidado foi impecável do início ao fim. Muito gratos por tudo!”</p>
+                    <div class="autor">— Carlos M., tutor do Bob</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <div class="cta-box" style="margin-top: 4.5rem;">
             <h2>Pronto para cuidar do seu pet?</h2>
-            <p>Agende uma consulta de forma rápida e simples. Estamos prontos para receber vocês!</p>
-            <a href="agendamentos.html" class="btn">Ir para Agendamento</a>
+            <p>Agende uma consulta de forma rápida e simples. Estamos prontos para receber vocês com carinho!</p>
+            <a href="agendamentos.html" class="btn">Agendar Consulta Agora</a>
         </div>
 
     </main>
