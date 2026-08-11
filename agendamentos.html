@@ -10,6 +10,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .sucesso-card {
+            display: none;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .sucesso-card.ativo {
+            display: block;
+        }
+        .sucesso-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .sucesso-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+        .sucesso-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .sucesso-resumo {
+            background: #f3e8ff;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+        .sucesso-resumo strong {
+            color: var(--primary-dark);
+        }
+        .form-escondido {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -29,87 +67,111 @@
     <main class="container-form">
         
         <div class="form-card">
-            <div class="form-header">
-                <h2>Formulário de Agendamento</h2>
-                <p>Leva menos de 2 minutos para preencher</p>
-            </div>
-
-            <form id="agendamentoForm" action="#" method="POST">
-                <div class="form-grid">
-                    
-                    <div class="form-group full-width">
-                        <label for="nome-tutor">Nome Completo do Tutor *</label>
-                        <input type="text" id="nome-tutor" name="nome-tutor" placeholder="Ex: Maria Silva" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefone">Telefone / WhatsApp *</label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nome-pet">Nome do Pet *</label>
-                        <input type="text" id="nome-pet" name="nome-pet" placeholder="Ex: Thor" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="especie">Espécie *</label>
-                        <select id="especie" name="especie" required>
-                            <option value="">Selecione...</option>
-                            <option value="Cão">Cão</option>
-                            <option value="Gato">Gato</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="servico">Serviço Desejado *</label>
-                        <select id="servico" name="servico" required>
-                            <option value="">Selecione o serviço...</option>
-                            <option value="Consulta de Rotina">Consulta de Rotina</option>
-                            <option value="Vacinação">Vacinação</option>
-                            <option value="Exames Laboratoriais">Exames Laboratoriais</option>
-                            <option value="Cirurgia Geral">Cirurgia Geral</option>
-                            <option value="Estética e Banho">Estética e Banho</option>
-                            <option value="Outro">Outro serviço</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="data">Data Preferencial *</label>
-                        <input type="date" id="data" name="data" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="horario">Turno Preferencial *</label>
-                        <select id="horario" name="horario" required>
-                            <option value="">Selecione...</option>
-                            <option value="Manhã">Manhã (08:00 - 12:00)</option>
-                            <option value="Tarde">Tarde (13:00 - 18:00)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="observacoes">Observações ou Sintomas do Pet (Opcional)</label>
-                        <textarea id="observacoes" name="observacoes" placeholder="Conte-nos brevemente o motivo da consulta ou alguma necessidade especial do seu pet..."></textarea>
-                    </div>
-
+            
+            <!-- Formulário -->
+            <div id="area-formulario">
+                <div class="form-header">
+                    <h2>Formulário de Agendamento</h2>
+                    <p>Leva menos de 2 minutos para preencher</p>
                 </div>
 
-                <button type="submit" class="submit-btn">Solicitar Agendamento</button>
-            </form>
+                <form id="agendamentoForm">
+                    <div class="form-grid">
+                        
+                        <div class="form-group full-width">
+                            <label for="nome-tutor">Nome Completo do Tutor *</label>
+                            <input type="text" id="nome-tutor" name="nome-tutor" placeholder="Ex: Maria Silva" required>
+                        </div>
 
-            <div class="whatsapp-opt">
-                <p>Prefere agendar diretamente pelo aplicativo?</p>
-                <a href="https://wa.me/5500000000000" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                    <span>📱 Agendar via WhatsApp</span>
-                </a>
+                        <div class="form-group">
+                            <label for="telefone">Telefone / WhatsApp *</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nome-pet">Nome do Pet *</label>
+                            <input type="text" id="nome-pet" name="nome-pet" placeholder="Ex: Thor" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="especie">Espécie *</label>
+                            <select id="especie" name="especie" required>
+                                <option value="">Selecione...</option>
+                                <option value="Cão">Cão</option>
+                                <option value="Gato">Gato</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="servico">Serviço Desejado *</label>
+                            <select id="servico" name="servico" required>
+                                <option value="">Selecione o serviço...</option>
+                                <option value="Consulta de Rotina">Consulta de Rotina</option>
+                                <option value="Vacinação">Vacinação</option>
+                                <option value="Exames Laboratoriais">Exames Laboratoriais</option>
+                                <option value="Cirurgia Geral">Cirurgia Geral</option>
+                                <option value="Estética e Banho">Estética e Banho</option>
+                                <option value="Outro">Outro serviço</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data">Data Preferencial *</label>
+                            <input type="date" id="data" name="data" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="horario">Turno Preferencial *</label>
+                            <select id="horario" name="horario" required>
+                                <option value="">Selecione...</option>
+                                <option value="Manhã">Manhã (08:00 - 12:00)</option>
+                                <option value="Tarde">Tarde (13:00 - 18:00)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="observacoes">Observações ou Sintomas do Pet (Opcional)</label>
+                            <textarea id="observacoes" name="observacoes" placeholder="Conte-nos brevemente o motivo da consulta ou alguma necessidade especial do seu pet..."></textarea>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="submit-btn">Solicitar Agendamento</button>
+                </form>
+
+                <div class="whatsapp-opt">
+                    <p>Prefere agendar diretamente pelo aplicativo?</p>
+                    <a href="https://wa.me/5500000000000" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                        <span>📱 Agendar via WhatsApp</span>
+                    </a>
+                </div>
             </div>
+
+            <!-- Mensagem de Sucesso -->
+            <div id="area-sucesso" class="sucesso-card">
+                <div class="sucesso-icon">✅</div>
+                <h2>Solicitação enviada com sucesso!</h2>
+                <p>
+                    Recebemos seus dados. Em breve entraremos em contato para confirmar o horário.
+                </p>
+
+                <div class="sucesso-resumo" id="resumo-agendamento"></div>
+
+                <a href="#" id="btn-whatsapp-dados" class="btn" target="_blank" rel="noopener noreferrer" style="margin-bottom: 1rem;">
+                    📱 Enviar também pelo WhatsApp
+                </a>
+                <br>
+                <button type="button" class="btn btn-outline" id="btn-novo-agendamento" style="margin-left: 0;">
+                    Fazer outro agendamento
+                </button>
+            </div>
+
         </div>
 
     </main>
@@ -119,8 +181,71 @@
     </footer>
 
     <script>
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('data').setAttribute('min', today);
+        // Data mínima = hoje
+        const campoData = document.getElementById('data');
+        const hoje = new Date().toISOString().split('T')[0];
+        campoData.setAttribute('min', hoje);
+
+        // ⚠️ TROQUE pelo número real da clínica (só números, com DDI)
+        // Exemplo Brasil: 5511999999999
+        const WHATSAPP_CLINICA = '5500000000000';
+
+        const form = document.getElementById('agendamentoForm');
+        const areaForm = document.getElementById('area-formulario');
+        const areaSucesso = document.getElementById('area-sucesso');
+        const resumo = document.getElementById('resumo-agendamento');
+        const btnWhatsapp = document.getElementById('btn-whatsapp-dados');
+        const btnNovo = document.getElementById('btn-novo-agendamento');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const tutor = document.getElementById('nome-tutor').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const pet = document.getElementById('nome-pet').value.trim();
+            const especie = document.getElementById('especie').value;
+            const servico = document.getElementById('servico').value;
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+            const obs = document.getElementById('observacoes').value.trim();
+
+            const dataFormatada = data.split('-').reverse().join('/');
+
+            resumo.innerHTML = `
+                <p><strong>Tutor:</strong> ${tutor}</p>
+                <p><strong>Telefone:</strong> ${telefone}</p>
+                ${email ? `<p><strong>E-mail:</strong> ${email}</p>` : ''}
+                <p><strong>Pet:</strong> ${pet} (${especie})</p>
+                <p><strong>Serviço:</strong> ${servico}</p>
+                <p><strong>Data:</strong> ${dataFormatada}</p>
+                <p><strong>Turno:</strong> ${horario}</p>
+                ${obs ? `<p><strong>Observações:</strong> ${obs}</p>` : ''}
+            `;
+
+            let mensagem = `*Novo Agendamento - Clínica Veterinária*%0A%0A`;
+            mensagem += `*Tutor:* ${tutor}%0A`;
+            mensagem += `*Telefone:* ${telefone}%0A`;
+            if (email) mensagem += `*E-mail:* ${email}%0A`;
+            mensagem += `*Pet:* ${pet} (${especie})%0A`;
+            mensagem += `*Serviço:* ${servico}%0A`;
+            mensagem += `*Data preferencial:* ${dataFormatada}%0A`;
+            mensagem += `*Turno:* ${horario}%0A`;
+            if (obs) mensagem += `*Observações:* ${obs}%0A`;
+
+            btnWhatsapp.href = `https://wa.me/${WHATSAPP_CLINICA}?text=${mensagem}`;
+
+            areaForm.classList.add('form-escondido');
+            areaSucesso.classList.add('ativo');
+            areaSucesso.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        btnNovo.addEventListener('click', function () {
+            form.reset();
+            campoData.setAttribute('min', hoje);
+            areaSucesso.classList.remove('ativo');
+            areaForm.classList.remove('form-escondido');
+        });
     </script>
 
 </body>
