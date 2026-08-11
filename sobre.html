@@ -3,16 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a história, missão e valores da nossa Clínica Veterinária.">
     <title>Sobre Nós | Clínica Veterinária</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.4rem;
+            margin-top: 2rem;
+        }
+        .valor-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.6rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.25s ease;
+        }
+        .valor-card:hover { transform: translateY(-5px); }
+        .valor-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+        .valor-card h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .valor-card p { color: var(--text-muted); font-size: 0.92rem; }
+
+        .historia-box {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+        .historia-box p { color: var(--text-muted); margin-bottom: 1.1rem; font-size: 1.05rem; }
+
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .mvv-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+        }
+        .mvv-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .mvv-card p { color: var(--text-muted); font-size: 0.98rem; }
+
+        .equipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .membro {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        .membro-foto {
+            width: 90px;
+            height: 90px;
+            background: #f3e8ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+        }
+        .membro h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .membro .cargo { color: var(--primary-color); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.6rem; }
+        .membro p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .numeros {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin: 3rem 0;
+        }
+        .numero-item {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        .numero-item strong { display: block; font-size: 2rem; color: var(--primary-color); margin-bottom: 0.3rem; }
+        .numero-item span { color: var(--text-muted); font-size: 0.9rem; }
+
+        @media (max-width: 700px) {
+            .numeros { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <h1>Sobre Nós</h1>
-        <p>Conheça nossa história e nosso compromisso com os animais</p>
+        <p>Conheça nossa história, missão e o cuidado que dedicamos a cada pet</p>
     </header>
 
     <nav aria-label="Navegação Principal">
@@ -24,30 +131,163 @@
     </nav>
 
     <main class="container">
-        <div class="sobre-box">
-            <div class="sobre-texto">
+
+        <section>
+            <div class="section-title">
+                <h2>Nossa História</h2>
+                <p>Como tudo começou</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="historia-box">
                 <p>
-                    Somos uma clínica veterinária dedicada ao cuidado integral dos pets. 
-                    Nossa equipe é formada por profissionais apaixonados por animais e 
-                    comprometidos com a excelência no atendimento.
+                    Nossa clínica nasceu do desejo de oferecer um atendimento veterinário 
+                    mais humanizado, onde o carinho pelo animal caminha lado a lado com 
+                    a excelência técnica.
                 </p>
                 <p>
-                    Trabalhamos com ética, transparência e muito carinho, buscando sempre 
-                    o melhor para a saúde e o bem-estar dos seus companheiros.
+                    Ao longo dos anos, construímos uma equipe dedicada e uma estrutura 
+                    preparada para cuidar da saúde completa dos pets — desde consultas 
+                    de rotina até procedimentos mais complexos.
                 </p>
-                <div class="destaque">
-                    “Cada pet merece ser tratado com o mesmo amor que recebe em casa.”
+                <p>
+                    Acreditamos que cada animal merece ser tratado com respeito, 
+                    atenção e o mesmo amor que recebe em casa. Esse é o princípio 
+                    que guia tudo o que fazemos.
+                </p>
+                <div class="destaque" style="margin-top: 1.5rem;">
+                    “Cuidar de um pet é cuidar de um membro da família.”
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-emoji">🐾❤️</div>
-                <div class="hero-badge">Nossa missão é cuidar</div>
+        </section>
+
+        <section>
+            <div class="section-title">
+                <h2>Missão, Visão e Valores</h2>
+                <p>O que nos move todos os dias</p>
+                <div class="linha"></div>
             </div>
+
+            <div class="mvv-grid">
+                <div class="mvv-card">
+                    <h3>🎯 Missão</h3>
+                    <p>
+                        Proporcionar saúde e bem-estar aos animais de estimação 
+                        através de um atendimento ético, técnico e acolhedor, 
+                        fortalecendo o vínculo entre tutor e pet.
+                    </p>
+                </div>
+                <div class="mvv-card">
+                    <h3>👁️ Visão</h3>
+                    <p>
+                        Ser referência em medicina veterinária na região, 
+                        reconhecida pela qualidade do cuidado, pela confiança 
+                        dos tutores e pelo compromisso com a vida animal.
+                    </p>
+                </div>
+                <div class="mvv-card">
+                    <h3>💜 Valores</h3>
+                    <p>
+                        Ética, respeito à vida, transparência, empatia, 
+                        atualização constante e responsabilidade com cada 
+                        paciente que passa pela nossa clínica.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="numeros">
+                <div class="numero-item">
+                    <strong>15+</strong>
+                    <span>Anos de experiência</span>
+                </div>
+                <div class="numero-item">
+                    <strong>8 mil+</strong>
+                    <span>Pets atendidos</span>
+                </div>
+                <div class="numero-item">
+                    <strong>12</strong>
+                    <span>Profissionais</span>
+                </div>
+                <div class="numero-item">
+                    <strong>98%</strong>
+                    <span>Satisfação</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">
+                <h2>O que nos diferencia</h2>
+                <p>Princípios que estão presentes em cada atendimento</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <div class="valor-icon">🤝</div>
+                    <h3>Atendimento Humanizado</h3>
+                    <p>Tratamos cada pet e cada tutor com atenção e respeito.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">📚</div>
+                    <h3>Atualização Constante</h3>
+                    <p>Equipe em contínua formação para oferecer o melhor.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">🔍</div>
+                    <h3>Transparência</h3>
+                    <p>Explicamos cada etapa do tratamento de forma clara.</p>
+                </div>
+                <div class="valor-card">
+                    <div class="valor-icon">❤️</div>
+                    <h3>Amor pelos Animais</h3>
+                    <p>O bem-estar do pet é sempre nossa prioridade.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 4rem;">
+            <div class="section-title">
+                <h2>Nossa Equipe</h2>
+                <p>Profissionais dedicados ao cuidado do seu pet</p>
+                <div class="linha"></div>
+            </div>
+
+            <div class="equipe-grid">
+                <div class="membro">
+                    <div class="membro-foto">👩‍⚕️</div>
+                    <h3>Dra. Ana Silva</h3>
+                    <div class="cargo">Médica Veterinária</div>
+                    <p>Clínica geral e clínica de pequenos animais.</p>
+                </div>
+                <div class="membro">
+                    <div class="membro-foto">👨‍⚕️</div>
+                    <h3>Dr. Carlos Mendes</h3>
+                    <div class="cargo">Cirurgião Veterinário</div>
+                    <p>Especialista em cirurgias e procedimentos.</p>
+                </div>
+                <div class="membro">
+                    <div class="membro-foto">👩‍⚕️</div>
+                    <h3>Dra. Juliana Costa</h3>
+                    <div class="cargo">Dermatologia</div>
+                    <p>Cuidados com pele, alergias e otites.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-box" style="margin-top: 4rem;">
+            <h2>Quer conhecer a clínica de perto?</h2>
+            <p>Agende uma consulta e venha viver a experiência de um atendimento feito com cuidado de verdade.</p>
+            <a href="agendamentos.html" class="btn">Agendar Consulta</a>
         </div>
+
     </main>
 
     <footer>
         <p>&copy; 2026 Clínica Veterinária — Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>
